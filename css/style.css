@@ -7,29 +7,124 @@
     --blue: #59a1e4;
 }
 
+.item {
+    height: 100px;
+    width: 100px;
+    border: 1px solid black;
+}
+
 html,
 body {
     width: 100%;
     height: 100%;
 }
 
-.container {
+.page-container {
     height: 100%;
     display: grid;
-    grid-template: 20% 80% / 1fr 4fr;
+    grid-template: 1fr 4fr / 1fr 6fr;
 }
 
+.navigation {
+    overflow: auto;
+    background-color: var(--blue);
+    grid-row: 1 / 3;
+    grid-column: 1;
+    height: 100%;
+}
 
+.header {
+    background-color: white;
+    grid-row: 1;
+    grid-column: 2;
+}
 
+.content-panel {
+    padding: 2%;
+    overflow: auto;
+    background-color: #eee;
+    grid-row: 2;
+    grid-column: 2;
 
+    display: grid;
+    grid-template: 1fr 1fr / 4fr 1fr;
+}
 
+.main-content {
 
+    overflow: auto;
+    grid-row: 1 / 3;
+    grid-column: 1;
+    display: grid;
+    grid-template-rows: auto 1f;
+}
+
+.main-grid {
+    overflow: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-auto-rows: 1fr;
+    padding-right: 1%;
+    gap: 2%;
+}
+
+.announcements {
+    overflow: auto;
+    grid-row: 1;
+    grid-column: 2;
+    display: grid;
+    grid-template-rows: min-content 1fr;
+}
+
+.announcements-grid {
+    overflow: auto;
+    background-color: white;
+    padding: 1em 2em;
+    display: grid;
+    margin-bottom: 5%;
+}
+
+.trending {
+    margin-top: 5%;
+    overflow: auto;
+    grid-row: 2;
+    grid-column: 2;
+    display: grid;
+    grid-template-rows: min-content 1fr;
+}
+
+.trending-grid {
+    overflow: auto;
+    background-color: white;
+    padding: 1em 2em;
+    display: grid;
+}
+
+.announcements,
+.trending {
+    padding-left: 5%;
+}
+
+.announcements-grid,
+.trending-grid {
+    border-radius: 5%;
+}
+
+.main-header,
+.announcements-header,
+.trending-header {
+    font-weight: bold;
+    margin-bottom: 0.5em;
+    font-size: 1.25em;
+}
+
+/******************************************/
 
 svg.white {
     fill: white;
 }
 
-nav {
+.navigation {
     overflow: auto;
     padding-top: 5%;
     grid-row: 1 / 3;
@@ -38,7 +133,7 @@ nav {
     grid-template-rows: min-content min-content;
 }
 
-nav>div {
+.navigation>div {
     display: grid;
     row-gap: 10px;
 }
@@ -49,6 +144,11 @@ nav>div {
     grid-template-columns: 1fr 3fr;
     align-content: center;
     align-items: center;
+    font-size: 1.5em;
+}
+
+.nav-body>.link {
+    font-size: 1.25em;
 }
 
 .nav-head>a>svg {
@@ -69,133 +169,20 @@ nav>div {
     font-weight: bold;
 }
 
-
 .nav-body>a>svg {
     width: 50%;
     height: 50%;
     justify-self: center;
 }
 
-.title {
-    font-size: x-large;
-}
 
-
-
-header {
-    padding: 2%;
-    grid-column: 2;
-    display: grid;
-    grid-template: 1fr 1fr / 2fr 1fr;
-    gap: 25% 1%;
-}
-
-.search {
-    display: grid;
-    grid-template-columns: min-content 1fr;
-    align-items: center;
-    justify-items: center;
-}
-
-.search>button {
-    margin-right: 15px;
-}
-
-.search>input[type="text"] {
-    width: 100%;
-}
-
-.user {
-    display: grid;
-    grid-template-columns: 1fr auto auto;
-    column-gap: 2%;
-    align-items: center;
-}
-
-.user>.notifications {
-    justify-self: end;
-}
-
-.user>.user-avatar,
-.user>.user-name {
-    justify-self: center;
-}
-
-.profile {
-    display: grid;
-    grid-template: 40px auto / 80px auto;
-}
-
-.avatar {
-    grid-row: 1 / 3;
-    justify-self: center;
-    align-self: center;
-}
-
-.greeting,
-.name {
-    align-self: center;
-}
-
-.actions {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-}
-
-.actions>button {
-    background-color: var(--blue);
-    margin: 5% 10%;
-}
-
-
-
-
-
-
-
-
-
-.content {
-    background-color: #eee;
-    padding: 20px 0 0 20px;
-
-    grid-row: 2;
-    grid-column: 2;
-
-
-    display: grid;
-    grid-template-columns: 3fr 1fr;
-    grid-auto-rows: 1fr;
-    gap: 5px;
-}
-
-.projects {
-    grid-row: 1 / 3;
-
-    display: grid;
-    gap: 2%;
-    grid-template-rows: min-content 1fr;
-}
-
-.section-title {
-    font-weight: bold;
-}
-
-.section-content {
-    overflow: auto;
-    padding-right: 20px;
-
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-auto-rows: 1fr;
-    gap: 25px;
-}
+/******************************************/
 
 .card {
     background-color: white;
     border-radius: 10px;
-    padding: 1em 1em 0 1em;
-    box-shadow: -5px 0 orange;
+    padding: 1em 1em 1em 1em;
+    border-left: 10px solid orange;
     margin-left: 5px;
     min-height: 250px;
 
@@ -208,6 +195,7 @@ header {
 
 .project-title {
     font-weight: bold;
+    font-size: 1.1em;
 }
 
 .project-content {
@@ -227,14 +215,34 @@ header {
     width: 100%;
 }
 
+/******************************************/
 
-.annoucements {
-    grid-column: 2;
+.announcement {
     display: grid;
+    grid-auto-rows: min-content;
 }
 
+.divider {
+    border-top: 1px solid grey;
+    margin: 1em;
+}
+
+.a-subject {
+    font-weight: bold;
+}
+
+.a-message {
+    font-size: 0.8em;
+    color: grey;
+}
+
+
+/******************************************/
+
 .trending {
+    overflow: auto;
     grid-column: 2;
     grid-row: 2;
     display: grid;
+    grid-auto-rows: 1fr;
 }
