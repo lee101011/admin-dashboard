@@ -98,6 +98,7 @@ body {
     background-color: white;
     padding: 1em 2em;
     display: grid;
+    grid-auto-rows: min-content;
 }
 
 .announcements,
@@ -239,10 +240,37 @@ svg.white {
 
 /******************************************/
 
-.trending {
-    overflow: auto;
-    grid-column: 2;
-    grid-row: 2;
+.trend {
     display: grid;
+    grid-template-columns: 1fr 4fr;
     grid-auto-rows: 1fr;
+}
+
+.trend-icon>img {
+    border-radius: 50%;
+    width: 3em;
+}
+
+.trend-icon {
+    align-self: center;
+}
+
+.trend-info {
+    overflow: auto;
+    display: grid;
+    grid-template-rows: min-content min-content;
+    padding-left: 1em;
+    font-size: 0.9em;
+}
+
+.trend-user {
+    align-self: self-end;
+    font-weight: bold;
+}
+
+.trend-project {
+    align-self: self-start;
+    overflow: auto;
+    max-height: 80px;
+    color: grey;
 }
