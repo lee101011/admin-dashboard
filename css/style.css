@@ -22,7 +22,7 @@ body {
 .page-container {
     height: 100%;
     display: grid;
-    grid-template: 1fr 4fr / 1fr 6fr;
+    grid-template: 1fr 4fr / 1fr 5fr;
 }
 
 .navigation {
@@ -31,6 +31,9 @@ body {
     grid-row: 1 / 3;
     grid-column: 1;
     height: 100%;
+    padding-top: 5%;
+    display: grid;
+    grid-template-rows: min-content min-content;
 }
 
 .header {
@@ -62,7 +65,7 @@ body {
 .main-grid {
     overflow: auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     grid-auto-rows: 1fr;
     padding-right: 1%;
     gap: 2%;
@@ -123,15 +126,6 @@ body {
 
 svg.white {
     fill: white;
-}
-
-.navigation {
-    overflow: auto;
-    padding-top: 5%;
-    grid-row: 1 / 3;
-    background-color: var(--blue);
-    display: grid;
-    grid-template-rows: min-content min-content;
 }
 
 .navigation>div {
@@ -294,12 +288,37 @@ svg.white {
     justify-items: center;
 }
 
-.search>button {
-    margin-right: 15px;
+.lense {
+    justify-self: end;
+    border-radius: 50%;
+    padding: 0.5em;
+    margin-right: 1em;
+}
+
+.lense:hover {
+    background-color: #eee;
+}
+
+.lense > svg {
+    aspect-ratio: 1.25/1;
+    width: 2em;
 }
 
 .search>input[type="text"] {
+    font-size: 1.25em;
     width: 100%;
+    border-radius: 0.8em;
+    box-shadow: 0;
+    background-color: #eee;
+    border: 0px;
+    height: 2em;
+    padding: 1em 1.5em;
+}
+
+.search>input[type="text"]:focus {
+    outline: none;
+    color: black;
+    border: 1px solid black;
 }
 
 .user {
@@ -307,15 +326,33 @@ svg.white {
     grid-template-columns: 1fr auto auto;
     column-gap: 2%;
     align-items: center;
+    gap: 1.75em;
+    margin-right: 10%;
 }
 
-.user>.notifications {
+.notifications {
     justify-self: end;
+    border-radius: 50%;
+    padding: 0.5em;
+}
+
+.notifications:hover {
+    background-color: #eee;
+}
+
+.notifications > svg {
+    aspect-ratio: 1.25/1;
+    width: 2em;
 }
 
 .user>.user-avatar,
 .user>.user-name {
     justify-self: center;
+}
+
+.user-name {
+    font-weight: bold;
+    font-size: 1.25em;
 }
 
 .profile {
